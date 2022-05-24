@@ -9,7 +9,7 @@ const multer = require("multer");
 const upload = multer({ dest: "uploads/" });
 
 const app = express();
-const port = 7000;
+const port = process.env.PORT || 7000;
 
 app.use(express.json());
 //모든 브라우저에서 내 서버에 요청 가능
