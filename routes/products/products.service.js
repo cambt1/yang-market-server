@@ -25,9 +25,36 @@ exports.index = (req, res) => {
     });
 };
 
+exports.sort = (req, res) => {
+  models.Product.findAll({
+    order: [
+      ["name", "ASC"],
+      ["createdAt", "DESC"],
+    ],
+    attributes: [
+      "id",
+      "name",
+      "price",
+      "createdAt",
+      "seller",
+      "imageUrl",
+      "soldout",
+    ],
+  })
+    .then((result) => {
+      console.log(result);
+      res.send({ products: result });
+    })
+    .catch((error) => {
+      console.error(error);
+      res.send("에러 발생");
+    });
+};
+
 exports.showDetailPage = (req, res) => {
   const params = req.params;
   const { id } = params;
+
   models.Product.findOne({ where: { id } })
     .then((result) => {
       console.log("PRODUCT : ", result);

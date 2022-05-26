@@ -13,6 +13,9 @@ const upload = multer({
 });
 
 router.get("/", service.index);
+//라우터 순서를 여기다 안두면 에러남? 쿼리문 이상해짐
+router.get("/sort", service.sort);
+
 router.get("/:id", service.showDetailPage);
 
 router.post("/", service.create);
