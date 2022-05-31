@@ -24,6 +24,7 @@
     "path": "^0.12.7",
     "reques": "^0.0.1-security",
     "request": "^2.88.2",
-    "sequelize": "^6.19.0"
+    "sequelize": "^6.19.0",
+    "xml-js": "^1.6.11"
   }
 }
